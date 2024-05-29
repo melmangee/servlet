@@ -39,18 +39,24 @@ public class GetMethodquiz08 extends HttpServlet {
 		Iterator<String> iter = list.iterator();
 			while(iter.hasNext()) {
 				String line = iter.next();
-				
-			if(line.contains(keyword)) {
-				String[] words = line.split(keyword); // 0 앞문장 1 뒷문장	
-				out.print(words[0] + "<b>" + keyword + "</b>" + words[1] + "<br>");
-			}			
-				
-//				
-//			if(line.contains(keyword)) {
+
+//				//1)
+//				if(line.contains(keyword)) {
 //				line = line.replace(keyword,"<b>"+ keyword + "</b>");
 //				out.print(line + "<br>");
 //			}
+			
+				//2)
+				if(line.contains(keyword)) {
+				String[] words = line.split(keyword); // 0 앞문장 1 뒷문장	split keyword 기준으로 자른다.
+				out.print(words[0] + "<b>" + keyword + "</b>" + words[1] + "<br>");
+				
+			//  3) line.indexOf(keyword); // keyword가 있을시 index를 반환 없을시 -1
+			
+			}			
+							
 		}
+			
 		out.print("</body></html>");
 	}
 
